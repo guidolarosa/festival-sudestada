@@ -3,6 +3,15 @@ import './../stylus/stylesheet.styl';
 
 // markup
 const IndexPage = () => {
+  const couples = [
+    ['Javiera PS', 'Pitucardi'],
+    ['Femimutancia', 'Sile.Xile'],
+    ['Sukermercado', 'Leandro Davel'],
+    ['Mariana Sabattini', 'Marcelo Díaz'],
+    ['Martín M. Muntaner', 'Manuel Depetris'],
+    ['Natalia Novia', 'Ariel López V.']
+  ];
+
   return (
     <>
       <head>
@@ -40,36 +49,13 @@ const IndexPage = () => {
                   </span>
                   <div className="name-list">
                       <ul>
-                          <li className="couple">
-                            <span>Javiera PS</span>
-                            <span> • </span>
-                            <span>Pitucardi</span>
-                          </li>
-                          <li className="couple">
-                            <span>Femimutancia </span>
-                            <span> • </span>
-                            <span>Sile.Xile</span>
-                          </li>
-                          <li className="couple">
-                            <span>Sukermercado </span>
-                            <span> • </span>
-                            <span>Leandro Davel</span>
-                          </li>
-                          <li className="couple">
-                            <span>Mariana Sabattini </span>
-                            <span> • </span>
-                            <span>Marcelo Díaz</span>
-                          </li>
-                          <li className="couple">
-                            <span>Martín M. Muntaner </span>
-                            <span> • </span>
-                            <span>Manuel Depetris</span>
-                          </li>
-                          <li className="couple">
-                            <span>Natalia Novia</span>
-                            <span> • </span>
-                            <span>Ariel López V.</span>
-                          </li>
+                        {couples.map((couple) => (
+                            <li className="couple">
+                              <span>{couple[0]}</span>
+                              <span> • </span>
+                              <span>{couple[1]}</span>
+                            </li>
+                        ))}
                       </ul>
                   </div>
               </section>

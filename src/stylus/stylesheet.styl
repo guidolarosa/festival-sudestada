@@ -1,0 +1,137 @@
+@import "reset.css"
+@import "_variables.styl"
+@import "_fonts.styl"
+
+body
+    font-family Platform
+    font-style normal
+    padding-top 32px
+    .container
+        width 100%
+        max-width 800px
+        margin 0 auto
+        @media screen and (max-width 850px)
+            max-width 600px
+        @media screen and (max-width 630px)
+            max-width 420px
+    header
+        .pre-header
+            color $grey
+            font-size 18px
+            line-height 10px
+            display flex
+            justify-content space-between
+            line-height 26px
+            letter-spacing 0.6px
+            @media screen and (max-width 850px)
+                font-size 16px
+            .header-decoration
+                width 59px
+                height 59px
+                border-radius 60px
+                background $red
+                @media screen and (max-width 850px)
+                    display none
+        .header-body
+            display flex
+            align-items center
+            justify-content space-between
+            margin-top 8px
+            h1 
+                font-size 88px
+                font-weight 600
+            span
+                font-size 24px
+                color $black
+                text-align right
+                line-height 32px
+                font-weight 300
+            @media screen and (max-width 850px)
+                flex-direction column
+                align-items baseline
+                span
+                    text-align left
+    main
+        .book-mockup
+            margin-bottom 40px
+            img
+                width 100%
+                margin 40px 0
+            .download-text
+                text-align center
+                font-size 28px
+                display inline-block
+                width 100%
+                @media screen and (max-width 850px)
+                    text-align left
+                a
+                    color $red
+        .authors
+            .section-title
+                display inline-block
+                width 100%
+                text-align center
+                font-size 18px
+                font-weight 200
+                @media screen and (max-width 850px)
+                    text-align left
+            .name-list
+                margin-top 16px
+                ul
+                    list-style-type none
+                    display flex
+                    flex-wrap wrap
+                    justify-content center
+                    @media screen and (max-width 850px)
+                        justify-content left
+                    li
+                        display inline-block
+                        padding 0 16px
+                        margin-bottom 8px
+                        text-align center
+                        font-size 18px
+                        font-weight 500
+                        text-transform uppercase
+                        letter-spacing 1px
+                        @media screen and (max-width 850px)
+                            text-align left
+                            padding 0 24px 0 0
+
+    footer
+        padding-bottom 40px
+        @media screen and (max-width 850px)
+            padding-bottom 0
+        .footer-logos
+            max-width 320px
+            display flex
+            justify-content space-between
+            margin 3rem auto
+            img
+                height 50px
+        .lower-footer
+            padding 16px 0
+            display flex
+            .previous-editions
+                margin-left auto
+                font-size 1.3rem
+                a
+                    display inline-block
+                    margin 0 8px
+                    font-weight 500
+                    font-size 18px
+                    text-decoration none
+                    color $black
+                    transition 0.1s ease-in-out color
+                    &:hover
+                        color $red
+        @media screen and (max-width 850px)
+            margin 0
+            max-width unset !important
+            .lower-footer
+                background $red
+                padding 16px 32px
+                .previous-editions
+                    margin 0 auto
+                    color white
+                    a:hover
+                        color white

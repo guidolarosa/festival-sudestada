@@ -40,18 +40,36 @@ const IndexPage = () => {
                   </span>
                   <div className="name-list">
                       <ul>
-                          <li>Javiera PS</li>
-                          <li>Pitucardi</li>
-                          <li>Femimutancia</li>
-                          <li>Sile.Xile</li>
-                          <li>Sukermercado</li>
-                          <li>Leandro Davel</li>
-                          <li>Mariana Sabattini</li>
-                          <li>Marcelo Díaz</li>
-                          <li>Martín M. Muntaner</li>
-                          <li>Manuel Depetris</li>
-                          <li>Natalia Novia</li>
-                          <li>Ariel López V.</li>
+                          <li className="couple">
+                            <span>Javiera PS</span>
+                            <span> • </span>
+                            <span>Pitucardi</span>
+                          </li>
+                          <li className="couple">
+                            <span>Femimutancia </span>
+                            <span> • </span>
+                            <span>Sile.Xile</span>
+                          </li>
+                          <li className="couple">
+                            <span>Sukermercado </span>
+                            <span> • </span>
+                            <span>Leandro Davel</span>
+                          </li>
+                          <li className="couple">
+                            <span>Mariana Sabattini </span>
+                            <span> • </span>
+                            <span>Marcelo Díaz</span>
+                          </li>
+                          <li className="couple">
+                            <span>Martín M. Muntaner </span>
+                            <span> • </span>
+                            <span>Manuel Depetris</span>
+                          </li>
+                          <li className="couple">
+                            <span>Natalia Novia</span>
+                            <span> • </span>
+                            <span>Ariel López V.</span>
+                          </li>
                       </ul>
                   </div>
               </section>

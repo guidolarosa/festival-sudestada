@@ -112,12 +112,21 @@ body
         @media screen and (max-width 850px)
             padding-bottom 0
         .footer-logos
-            max-width 320px
+            max-width 600px
             display flex
             justify-content space-between
+            align-items center
             margin 3rem auto
+            @media screen and (max-width 850px)
+                max-width: 420px
             img
                 height 50px
+                &:first-child
+                    height 30px
+                &:nth-child(2)
+                    height 90px
+                &:nth-child(3)
+                    height 80px
         .lower-footer
             padding 16px 0
             display flex

@@ -62,8 +62,9 @@ const IndexPage = () => {
           </main>
           <footer className="container">
               <section className="footer-logos">
-                  <img src="./mecenazgo_cultural.png" alt="Alt" />
-                  <img src="./ccr.png" alt="Alt" />
+                  <img src="./mc.jpg" alt="Mecenazgo Cultural" />
+                  <img src="./fs.png" alt="Festival Sudestada de Dibujo e Ilustración" />
+                  <img src="./ccr.png" alt="Centro Cultural Recoleta" />
               </section>
               <section className="lower-footer">
                   <span className="previous-editions">

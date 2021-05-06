@@ -1,0 +1,525 @@
+@font-face {
+  font-family: Futura;
+  src: url("fonts/futura_light_bt.ttf") format('truetype');
+  src: url("fonts/futura_light_bt-webfont.woff") format('woff');
+  src: url("fonts/futura_light_bt-webfont.woff2") format('woff2');
+}
+@font-face {
+  font-family: FuturaHeavy;
+  src: url("fonts/futura_heavy.ttf") format('truetype');
+}
+@font-face {
+  font-family: FuturaExtraHeavy;
+  src: url("fonts/futuraExtraHeavy.ttf") format('truetype');
+}
+@font-face {
+  font-family: Neutraface;
+  src: url("fonts/NeutraTextTF-DemSC.otf") format("opentype");
+  src: url("fonts/NeutraTextTF-DemSC.woff") format("woff");
+}
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.pace-inactive {
+  display: none;
+}
+.pace .pace-progress {
+  background: #fff;
+  position: fixed;
+  z-index: 2000;
+  width: 100%;
+  height: 5px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0px;
+}
+html body {
+  font-family: 'Futura';
+  color: #000;
+  margin: 0;
+  overflow-x: hidden;
+}
+html body .loading-overlay {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  opacity: 1;
+  transition: ease-in-out 0.5s opacity;
+  background-color: #fc3540;
+  padding-top: 30vh;
+}
+@media screen and (max-width: 760px) {
+  html body .loading-overlay {
+    padding-top: 15vh;
+  }
+}
+html body .loading-overlay .loading-image {
+  position: relative;
+  z-index: 1;
+  width: 200px;
+  height: 300px;
+  margin: 0 calc(50vw - 100px);
+  background-image: url("img/loading.png");
+  background-size: cover;
+  background-position: center;
+}
+html body .loading-overlay p {
+  color: #fff;
+  text-align: center;
+  font-family: 'FuturaHeavy';
+  font-size: 3em;
+}
+@media screen and (max-width: 760px) {
+  html body .loading-overlay p {
+    font-size: 2em;
+  }
+}
+html body .navbar .navbar-show {
+  right: 0 !important;
+}
+html body .navbar .navbar-container {
+  right: 0;
+  width: 15vw;
+  background-color: #fc3540;
+  min-width: 150px;
+  padding: 10px 10px;
+  position: fixed;
+  z-index: 3;
+  top: 30%;
+  transition: ease-in-out 0.2s right;
+}
+@media screen and (max-width: 760px) {
+  html body .navbar .navbar-container {
+    right: -150px;
+    border-bottom: 2px solid #fff;
+  }
+}
+html body .navbar .navbar-container ul {
+  padding: 10px;
+}
+html body .navbar .navbar-container ul li {
+  list-style: none;
+}
+html body .navbar .navbar-container ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  margin: 5px 0px;
+  font-size: 0.8em;
+  transition: ease-in-out 0.2s all;
+}
+html body .navbar .navbar-container ul li a:hover {
+  opacity: 0.7;
+}
+html body .navbar .navbar-container .display-menu-container {
+  background-color: #fc3540;
+  position: absolute;
+  padding: 10px;
+  left: -33px;
+  top: 20px;
+  font-size: 15px;
+  opacity: 0;
+  transition: ease-in-out 0.2s opacity;
+  cursor: pointer;
+}
+@media screen and (max-width: 760px) {
+  html body .navbar .navbar-container .display-menu-container {
+    opacity: 1;
+  }
+}
+html body .navbar .navbar-container .display-menu-container i {
+  color: #fff;
+}
+html body .section {
+  padding: 30px 0px 70px;
+}
+html body .section p {
+  text-align: justify;
+}
+html body .section .section-title {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: 'FuturaHeavy';
+}
+html body .section .box {
+  width: 40%;
+  margin: 0px 30%;
+  min-width: 200px;
+  position: relative;
+  z-index: 2;
+}
+@media screen and (max-width: 680px) {
+  html body .section .box {
+    width: 90%;
+    margin: 0px 5%;
+  }
+}
+html body .section .large-box {
+  width: 50%;
+  margin: 0px 25%;
+  text-align: center;
+}
+@media screen and (max-width: 680px) {
+  html body .section .large-box {
+    width: 90%;
+    margin: 0px 5%;
+  }
+}
+html body .welcome,
+html body .elfestival {
+  padding-top: 0px;
+}
+html body .welcome .box,
+html body .elfestival .box {
+  position: relative;
+  z-index: 2;
+}
+html body .welcome .box h1,
+html body .elfestival .box h1,
+html body .welcome .box h2,
+html body .elfestival .box h2,
+html body .welcome .box p,
+html body .elfestival .box p {
+  color: #fc3540;
+}
+html body .welcome .box h1,
+html body .elfestival .box h1 {
+  text-align: center;
+  padding-top: 25vh;
+  font-family: 'FuturaHeavy';
+  font-size: 6vw;
+  margin-bottom: 10vh;
+  line-height: 1em;
+}
+@media screen and (max-width: 680px) {
+  html body .welcome .box h1,
+  html body .elfestival .box h1 {
+    font-size: 10vw;
+  }
+}
+html body .welcome .top-illus,
+html body .elfestival .top-illus {
+  z-index: 1;
+  position: absolute;
+  width: 100vw;
+  height: 200px;
+  background-size: auto 200px;
+  background-image: url("img/section_welcome/top.png");
+  background-position: center top;
+}
+html body .welcome .left-illus,
+html body .elfestival .left-illus,
+html body .welcome .right-illus,
+html body .elfestival .right-illus {
+  position: absolute;
+  top: 200px;
+  height: 750px;
+  width: 50%;
+  margin: 0px;
+  transform: translateY(52px);
+  z-index: 1;
+  background-repeat: repeat-y;
+  background-size: 300px;
+  background-color: #fff;
+  background-blend-mode: multiply;
+  transition: 0.2s ease-in-out opacity;
+}
+@media screen and (max-width: 920px) {
+  html body .welcome .left-illus,
+  html body .elfestival .left-illus,
+  html body .welcome .right-illus,
+  html body .elfestival .right-illus {
+    opacity: 0.1 !important;
+  }
+}
+html body .welcome .left-illus,
+html body .elfestival .left-illus {
+  left: 0;
+  background-image: url("img/section_welcome/left.png");
+  background-position: 10% top;
+}
+html body .welcome .right-illus,
+html body .elfestival .right-illus {
+  right: 0;
+  background-image: url("img/section_welcome/right.png");
+  background-position: 90% top;
+}
+html body .welcome {
+  height: 100vh;
+  padding-bottom: 0px;
+}
+html body .welcome p {
+  text-align: center;
+  font-size: 1em;
+}
+html body .elfestival h2 {
+  margin-bottom: 20px;
+}
+html body .elfestival p {
+  margin-bottom: 30px;
+}
+html body .elfestival a {
+  text-decoration: none;
+  cursor: pointer !important;
+  font-family: 'FuturaHeavy';
+  color: #fc3540;
+}
+html body .cronograma {
+  background-color: #36b1f4;
+}
+html body .cronograma h2 {
+  color: #021c91;
+}
+html body .cronograma .event-container {
+  margin-bottom: 20px;
+}
+html body .cronograma .event-container .time {
+  color: #ffe400;
+  font-size: 2em;
+  font-family: 'FuturaHeavy';
+}
+html body .cronograma .event-container .details {
+  color: #fff;
+  font-size: 1em;
+}
+html body .cronograma .left-illus,
+html body .cronograma .right-illus {
+  position: absolute;
+  height: 600px;
+  width: 50%;
+  margin: 0px;
+  transform: translateY(100px) !important;
+  z-index: 1;
+  background-color: #36b1f4;
+  background-repeat: no-repeat;
+  background-size: 300px;
+  background-blend-mode: multiply;
+  transition: 0.2s ease-in-out opacity;
+}
+@media screen and (max-width: 920px) {
+  html body .cronograma .left-illus,
+  html body .cronograma .right-illus {
+    opacity: 0.1 !important;
+  }
+}
+html body .cronograma .left-illus {
+  left: 0;
+  background-image: url("img/section_cronograma/left.png");
+  background-position: left top;
+}
+html body .cronograma .right-illus {
+  right: 0;
+  background-image: url("img/section_cronograma/right.png");
+  background-position: right top;
+}
+html body .invitadxs {
+  background-color: #fc3540;
+}
+html body .invitadxs p {
+  margin-bottom: 25px;
+  font-size: 0.9em;
+}
+html body .invitadxs h2,
+html body .invitadxs p,
+html body .invitadxs .title {
+  color: #fff;
+}
+html body .invitadxs .invitade-container {
+  margin-bottom: 20px;
+}
+html body .invitadxs .invitade-container a {
+  text-decoration: none;
+}
+html body .invitadxs .invitade-container a .name {
+  color: #ffe400;
+  font-size: 2em;
+  font-family: "FuturaHeavy";
+  transition: ease-in-out 0.2s opacity;
+}
+html body .invitadxs .invitade-container a .name:hover {
+  opacity: 0.8;
+}
+html body .invitadxs .invitade-container .type {
+  color: #000;
+}
+html body .invitadxs .invitade-container .title {
+  font-family: "FuturaHeavy";
+  font-size: 1.5em;
+}
+html body .invitadxs .invitade-container .time_place {
+  display: inline-block;
+  margin-top: 5px;
+  color: #fff;
+}
+html body .invitadxs .left-illus,
+html body .invitadxs .right-illus {
+  position: absolute;
+  height: 600px;
+  width: 50%;
+  margin: 0px;
+  transform: translateY(100px) !important;
+  z-index: 1;
+  background-color: #fc3540;
+  background-repeat: no-repeat;
+  background-size: 300px;
+  background-blend-mode: screen;
+  transition: 0.2s ease-in-out opacity;
+}
+@media screen and (max-width: 920px) {
+  html body .invitadxs .left-illus,
+  html body .invitadxs .right-illus {
+    opacity: 0.1 !important;
+  }
+}
+html body .invitadxs .left-illus {
+  left: 0;
+  background-image: url("img/section_invitades/left.png");
+  background-position: left top;
+}
+html body .invitadxs .right-illus {
+  right: 0;
+  background-image: url("img/section_invitades/right.png");
+  background-position: right top;
+}
+html body .feria {
+  background-color: #021c91;
+  color: #fff;
+  background-image: url("img/section_feria/feria_back.png");
+  background-position: center;
+  background-blend-mode: multiply;
+}
+html body .feria .box p {
+  margin-bottom: 25px;
+}
+html body .exposiciones {
+  color: #fc3540;
+}
+html body .exposiciones .box {
+  position: relative;
+  display: inline-block;
+  z-index: 2;
+}
+html body .exposiciones .box h3,
+html body .exposiciones .box h4 {
+  font-family: "FuturaHeavy";
+}
+html body .exposiciones .box p {
+  margin-bottom: 25px;
+}
+html body .exposiciones .left-illus,
+html body .exposiciones .right-illus {
+  position: absolute;
+  height: 600px;
+  width: 50%;
+  margin: 0px;
+  transform: translateY(100px) !important;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: 300px;
+  transition: 0.2s ease-in-out opacity;
+}
+@media screen and (max-width: 920px) {
+  html body .exposiciones .left-illus,
+  html body .exposiciones .right-illus {
+    opacity: 0.1 !important;
+  }
+}
+html body .exposiciones .left-illus {
+  left: 0;
+  background-image: url("img/section_exposiciones/left.png");
+  background-position: 10% top;
+}
+html body .exposiciones .right-illus {
+  right: 0;
+  background-image: url("img/section_exposiciones/right.png");
+  background-position: 90% top;
+}
+html body .exposiciones .place {
+  font-family: 'FuturaHeavy';
+  color: #36b1f4;
+}
+html body .quienes-somos {
+  background-color: #021c91;
+}
+html body .quienes-somos .box h2 {
+  color: #36b1f4;
+}
+html body .quienes-somos .box p {
+  color: #fff;
+  margin-bottom: 25px;
+}
+html body footer {
+  background-color: #32006f;
+  color: #fff;
+}
+html body footer .section {
+  padding: 0px;
+}
+html body footer .section .top-footer-section {
+  background-image: url("img/footer/footer_back.png");
+  background-color: #32006f;
+  background-blend-mode: multiply;
+  padding: 30px 0px 30px;
+}
+html body footer .section .top-footer-section .large-box .section-title {
+  margin-bottom: 20px;
+  font-family: "FuturaHeavy";
+  font-size: 1.5em;
+}
+html body footer .section .top-footer-section .large-box p {
+  text-align: center;
+}
+html body footer .section .top-footer-section .large-box .mail {
+  display: inline-block;
+  margin-top: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'FuturaHeavy';
+  font-size: 1.5em;
+  transition: 0.2s ease-in-out all;
+}
+html body footer .section .top-footer-section .large-box .mail:hover {
+  opacity: 0.8;
+}
+@media screen and (max-width: 760px) {
+  html body footer .section .top-footer-section .large-box .mail {
+    font-size: 1em;
+  }
+}
+html body footer .section .bottom-footer-section {
+  margin: 0px 20px;
+}
+html body footer .section .bottom-footer-section .large-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+html body footer .section .bottom-footer-section .large-box a .footer-logo {
+  width: 100px;
+  height: 100px;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: screen;
+  background-color: #32006f;
+  transition: ease-in-out opacity 0.2s;
+}
+html body footer .section .bottom-footer-section .large-box a .footer-logo:hover {
+  opacity: 0.8;
+}
+@media screen and (max-width: 760px) {
+  html body footer .section .bottom-footer-section .large-box a .footer-logo {
+    width: 60px;
+    height: 60px;
+  }
+}

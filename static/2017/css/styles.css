@@ -1,0 +1,8 @@
+
+@font-face {
+  font-family: 'PaperCute';
+  src: url('PaperCute.eot?#iefix') format('embedded-opentype'),  url('PaperCute.otf')  format('opentype'),
+	     url('PaperCute.woff') format('woff'), url('PaperCute.ttf')  format('truetype'), url('PaperCute.svg#PaperCute') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

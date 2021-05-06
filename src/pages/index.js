@@ -1,4 +1,5 @@
 import * as React from "react";
+import {Link} from 'gatsby';
 import './../stylus/stylesheet.styl';
 
 // markup
@@ -25,7 +26,7 @@ const IndexPage = () => {
                   <span> 
                       El Festival Sudestada de dibujo e ilustración se transforma 
                       <br />
-                      para su tercera y pandemica edición en 
+                      para su tercera y pandémica edición en 
                   </span>
                   <div className="header-decoration"></div>
               </span>
@@ -68,7 +69,9 @@ const IndexPage = () => {
               </section>
               <section className="lower-footer">
                   <span className="previous-editions">
-                      Ediciones anteriores <a href="#">2017</a> / <a href="@">2018</a>
+                      Ediciones anteriores 
+                      <a href="/2017">2017</a> / 
+                      <a href="/2018">2018</a>
                   </span>
               </section>
           </footer>

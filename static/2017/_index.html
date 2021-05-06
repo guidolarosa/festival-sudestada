@@ -1,0 +1,774 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>·· Festival Sudestada ··</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<meta name="description" content="Sitio del Festival Sudestada de dibujo e ilustración">
+	<meta name="keywords" content="festival, ilustracion, dibujo, fanzine, historieta, comics" />    
+    
+    <!--fb-->
+    <meta property="og:type"        content="website"/>
+    <meta property="og:title"       content="Festival Sudestada" />
+    <meta property="og:image"       content="http://www.festivalsudestada.com/img/festival-sudestada-og.jpg" />
+    <meta property="og:description" content="Sitio del Festival Sudestada de dibujo e ilustración" />
+    <meta property="og:url"         content="http://www.festivalsudestada.com" />
+    <!--fb-->
+
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/principal.css">
+
+    <!-- COMPATIBILIDAD -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    
+    <!-- COMPATIBILIDAD -->
+
+	<script type="text/javascript" src="lib/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="lib/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="lib/jquery.easing.js"></script>
+
+	<script type="text/javascript">
+                    function scrollToElement(element_id, scroll_offset){
+                //alert(element_id);
+                $('body,html').animate({scrollTop:$(element_id).offset().top-scroll_offset},{
+                    duration: 1200,
+                    easing: "easeInOutExpo"
+                });
+            }
+        var cantNubes = 16;
+        var animacionesNubes = new Array(["fondo-nube-1", 200, '105%', 1, 205000, 345000,0],
+                                       ["fondo-nube-2", 800, '105%', 1, 235000, 325000,0],
+                                       ["fondo-nube-3", 1100, '105%', 1, 150000, 330000,0],
+                                       ["fondo-nube-4", 1300, '105%', 1, 90000, 300000,0],
+                                       ["fondo-nube-5", 400, '105%', 1, 210000, 295000,0],
+                                       ["fondo-nube-6", -200, '105%', 1, 305000, 300500,0],
+                                       ["fondo-nube-7", -400, '105%', 1, 330000, 330500,0],
+                                       ["fondo-nube-8", -800, '105%', 1, 370000, 300500,0],
+                                       ["fondo-nube-9", 0, '105%', 1, 300000, 300000,0],
+                                       ["fondo-globo", -100, '105%', 1, 190000, 190000,0],
+                                       ["fondo-bote-1", 800, '105%', 1, 30000, 50000,0],
+                                       ["fondo-bote-2", 200, -200, 0, 10000, 60000,0],
+                                       ["fondo-bote-3", 1200, -200, 0, 40000, 80000,0],
+                                       ["fondo-bote-4", 400, '105%', 1, 20000, 40000,0],
+                                       ["fondo-avion", -200, '105%', 1, 6000, 6000,6000],
+                                       ["fondo-gato", -200, '105%', 1, 120000, 120000,0]); 
+
+        var animateMe = function(targetElement, initialPos, finalPos, direction, speed, speed2, delayIni){
+            $(targetElement).css({left:initialPos+'px'});
+            $(targetElement).delay(delayIni).animate(
+                {
+                'left': finalPos
+                },
+                {
+                duration: speed, easing: 'linear',
+                complete: function(){    
+                        if (direction == 1) {
+                            initialPos = -200;
+                            finalPos = $(window).width()+200;
+                        } else {
+                            initialPos = $(window).width()+200;
+                            finalPos = -200;
+                        }                                     
+                        animateMe(this, initialPos, finalPos, direction, speed2, speed2, delayIni);
+                    }
+                }
+            );
+        };
+
+
+ var animateEyes = function(){
+
+    $('#fondo-ojos').delay(2000).animate({'opacity':1},50).delay(1000).animate({'opacity':0},50, function() {
+        $('#fondo-ojos-cerrados').delay(2000).animate({'opacity':1},50).delay(100).animate({'opacity':0},50).delay(2000).animate({'opacity':1},50).delay(100).animate({'opacity':0},50).delay(5000).animate({'opacity':1},50).delay(100).animate({'opacity':0},50, function () {
+            $('#fondo-ojos').delay(500).animate({'opacity':1},50).delay(1000).animate({'opacity':0},50, function() {
+                animateEyes();
+            });
+        });
+    });
+    
+
+ }
+
+        var animateGlow = function(targetElement, timeGlow, opac){
+            
+            $(targetElement).animate({'opacity': 1},timeGlow).animate({'opacity': opac},{duration: timeGlow,
+                complete: function(){                                       
+                        animateGlow(this, timeGlow, opac);
+                    }
+                }
+            );
+
+        };
+
+        $(document).ready(function(e) {
+            for (var i = 0; i < cantNubes; i++) {
+                animateMe($('#'+animacionesNubes[i][0]), animacionesNubes[i][1],animacionesNubes[i][2],animacionesNubes[i][3],animacionesNubes[i][4],animacionesNubes[i][5],animacionesNubes[i][6]);
+            }
+            
+            animateGlow($('#fondo-sol'), 1000, 0.7);
+
+            //Animación ojos
+            animateEyes();
+
+            $('#nav-festival').click(function(event) {
+                event.preventDefault();
+                scrollToElement('#festival', 0);
+                toggleMainNav();
+            });
+            $('#nav-invitados').click(function(event) {
+                event.preventDefault();
+                scrollToElement('#invitados', 0);
+                toggleMainNav();
+            });
+            $('#nav-contacto').click(function(event) {
+                event.preventDefault();
+                scrollToElement('#contacto', 0);
+                toggleMainNav();
+            });
+            $('#nav-feria').click(function(event) {
+                event.preventDefault();
+                scrollToElement('#feria', 0);
+                toggleMainNav();
+            });
+            $('#nav-muestra').click(function(event) {
+                event.preventDefault();
+                scrollToElement('#muestra', 0);
+                toggleMainNav();
+            });            
+            $('#nav-programacion').click(function(event) {
+                event.preventDefault();
+                scrollToElement('#programacion', 0);
+                toggleMainNav();
+            });
+            $('#nav-quienes').click(function(event) {
+                event.preventDefault();
+                scrollToElement('#quienes', 0);
+                toggleMainNav();
+            });
+        });
+        
+    </script>
+
+<style>
+    
+#fondo-titulo{
+    z-index: 1000;
+}
+
+#fondo-ppal{
+    z-index: 1000;
+}
+
+.fondo-elemento-animacion{
+    position: absolute;
+    top: 0;
+    left:5%;
+    display: block;
+}
+
+.fondo-nube{
+    z-index: 500;
+}
+.fondo-nube2{
+    z-index: 400;
+}
+
+#fondo-globo{
+    left:5%;
+    z-index: 800;
+}
+
+#fondo-sol{
+    z-index: 100;
+    left:75%;
+}
+
+#fondo-bote-1{
+    z-index: 300;
+}
+
+#fondo-bote-2{
+    z-index: 200;
+}
+
+#fondo-bote-3{
+    z-index: 100;
+}
+
+#fondo-avion{
+    z-index: 100;
+}
+
+#fondo-gato{
+    z-index: 2000;
+}
+
+.ojos{
+    left:50%;
+    transform:translateX(-50%);
+    z-index: 5000;
+    opacity: 0;
+}
+
+/*#fondo-ojos{
+    
+}*/
+
+
+nav{
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    z-index: 5000;
+}
+
+nav ul li{
+  font-family: 'PaperCute';
+    text-align: right;
+    font-size: 1.1em;
+    height: 30px;
+    cursor: pointer;
+}
+
+nav ul li span{
+    width: 10px;
+    height: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-color: #DDD;
+    display: inline-block;
+}
+
+nav ul li:hover span{
+    background-color: #ff423c;
+}
+
+#contacto p.fecha-contacto{
+    font-family: 'MrsLollipop-Fill';
+    font-size: 2.9em;
+    text-transform: uppercase;
+    margin-bottom: 00px;
+    line-height: 0.9em;
+}
+
+#contacto p.donde-contacto{
+    color:#F8C000;
+    font-size: 1.9em;
+    text-transform: uppercase;
+    font-family: 'PaperCute';
+    margin-bottom: 20px;
+    line-height: 1.1em;
+}
+
+#contacto p.donde-contacto img{
+    vertical-align: middle;
+}
+
+#contacto p.mail-contacto{
+    font-family: 'MrsLollipop-Fill';
+    font-size: 1.6em;
+}
+
+#contacto p.mail-contacto a{
+    text-decoration: none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+	<header>
+        <img id="fondo-titulo" src="img/fondo-titulo.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-ppal" src="img/fondo-ppal.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-globo" class="fondo-elemento-animacion" src="img/fondo-globo.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-sol" class="fondo-elemento-animacion" src="img/fondo-sol.jpg" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-nube-1" class="fondo-elemento-animacion fondo-nube" src="img/fondo-nube-1.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-nube-2" class="fondo-elemento-animacion fondo-nube2" src="img/fondo-nube-2.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-nube-3" class="fondo-elemento-animacion fondo-nube" src="img/fondo-nube-3.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-nube-4" class="fondo-elemento-animacion fondo-nube2" src="img/fondo-nube-4.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-nube-5" class="fondo-elemento-animacion fondo-nube" src="img/fondo-nube-5.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-nube-6" class="fondo-elemento-animacion fondo-nube2" src="img/fondo-nube-3.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-nube-7" class="fondo-elemento-animacion fondo-nube" src="img/fondo-nube-2.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-nube-8" class="fondo-elemento-animacion fondo-nube2" src="img/fondo-nube-5.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-nube-9" class="fondo-elemento-animacion fondo-nube" src="img/fondo-nube-6.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-bote-1" class="fondo-elemento-animacion fondo-bote" src="img/fondo-bote-1.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-bote-2" class="fondo-elemento-animacion fondo-bote" src="img/fondo-bote-2.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-bote-3" class="fondo-elemento-animacion fondo-bote" src="img/fondo-bote-3.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-bote-4" class="fondo-elemento-animacion fondo-bote" src="img/fondo-bote-4.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-avion" class="fondo-elemento-animacion fondo-bote" src="img/fondo-avion.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-gato" class="fondo-elemento-animacion fondo-bote" src="img/fondo-gato.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-ojos" class="fondo-elemento-animacion ojos" src="img/fondo-ojos.png" alt="Festival Sudestada de dibujo e ilustración">
+        <img id="fondo-ojos-cerrados" class="fondo-elemento-animacion ojos" src="img/fondo-ojos-cerrados.png" alt="Festival Sudestada de dibujo e ilustración">
+    </header>    
+    
+    <nav>
+        <ul>
+            <li id="nav-festival">el festival <span></span></li>
+            <li id="nav-invitados">invitados <span></span></li>
+            <li id="nav-feria">feria sudestada <span></span></li>
+            <li id="nav-muestra">sudestada 100 <span></span></li>
+            <li id="nav-programacion">programación <span></span></li>
+            <li id="nav-quienes">quiénes somos <span></span></li>
+            <li id="nav-contacto">contacto <span></span></li>
+        </ul>
+    </nav>
+    
+    <article id="festival" class="seccion fondoTurquesa">
+    <div class="contenido">
+        <h1>El festival</h1>
+        <div class="seccion-texto">
+            <p>Nacido en 2014 como feria colectiva de dibujo e ilustración en Casa Florida Galería, y producido por Musaraña Productora, el Festival Sudestada de Dibujo e Ilustración abre una ventanita en la ciudad de Buenos Aires para generar nuevos puentes y espacios dentro de la pujante industria cultural del dibujo y la ilustración. </p>
+            <p>Festival Sudestada quiere ser un punto de encuentro anual entre profesionales, estudiantes  y el público en general con el mundo de la ilustración, el dibujo y las artes gráficas, así como también convertirse en un foro profesional para la difusión y el intercambio. </p>
+            <p>Siendo conscientes del alto nivel profesional e histórico de nuestra región, vemos en los ilustradores y dibujantes actuales un gran desarrollo profesional, muchísimo talento y empuje y estamos atentos a una nueva ola, un gran viento, una fuerza artística que busca y precisa de canales para instalarse como una industria cultural robusta, sana y permanente. </p>
+            <p>El dibujo y la ilustración argentina son una fuerza de la naturaleza, que aquí llega en forma de Sudestada.</p>    
+        </div>
+    </div>
+    </article>
+    
+    <section id="invitados" class="seccion fondoMagenta">
+    <div class="contenido">
+        <h1>INVITADOS</h1>
+        <div class="seccion-texto">
+        <p>En esta primera edición de Festival Sudesta contamos con la presencia de seis invitados de lujo.</p>
+        <p>A lo largo de la jornada cada invitado hará una presentación de 45 minutos en la que contarán al público cómo llevan a cabo una tarea de su ámbito profesional basándose en casos concretos. Luego de cada presentación habrá 30 minutos para las preguntas del público. </p>
+        <p>La entrada es libre y gratuita.</p>
+        </div>
+        <article class="un-invitado">
+            <h2 class="invitado-especial"><img src="img/flecha-der.png" alt="invitado especial">invitado especial<img src="img/flecha-izq.png" alt="invitado especial"></h2>
+            <figure><img src="img/invitado-bianki.jpg" alt="Bianki"></figure>
+            <h1>Bianki</h1>
+            <h2>CHARLA</h2>
+            <h3>BIANKI x BIANKI <br>en <span class="amarillo">45 minutos</span></h3>
+        </article>
+        <article class="un-invitado">
+            <h2 class="invitado-especial"><img src="img/flecha-der.png" alt="invitada especial">invitada especial<img src="img/flecha-izq.png" alt="invitada especial"></h2>
+            <figure><img src="img/invitado-power-paola.jpg" alt="Power Paola"></figure>
+            <h1>Power Paola</h1>
+            <h2>CHARLA</h2>
+            <h3>POWERPAOLA x POWERPAOLA <br>en <span class="amarillo">45 minutos</span></h3>
+        </article>
+        <article class="un-invitado">
+            <h2 class="invitado-especial"><img src="img/flecha-der.png" alt="invitado especial">invitada especial<img src="img/flecha-izq.png" alt="invitada especial"></h2>
+            <figure><img src="img/invitado-isol.jpg" alt="ISOL"></figure>
+            <h1>ISOL</h1>
+            <h2>CHARLA</h2>
+            <h3>ISOL x ISOL <br>en <span class="amarillo">45 minutos</span></h3>
+        </article>
+        <article class="un-invitado">
+            <h2 class="invitado-especial"><img src="img/flecha-der.png" alt="invitada especial">invitado especial<img src="img/flecha-izq.png" alt="invitado especial"></h2>
+            <figure><img src="img/invitado-langer.jpg" alt="Langer"></figure>
+            <h1>LANGER</h1>
+            <h2>CHARLA</h2>
+            <h3>LANGER x LANGER <br>en <span class="amarillo">45 minutos</span></h3>
+        </article>
+        <article class="un-invitado">
+            <h2 class="invitado-especial"><img src="img/flecha-der.png" alt="invitado especial">invitado especial<img src="img/flecha-izq.png" alt="invitado especial"></h2>
+            <figure><img src="img/invitado-pares.jpg" alt="PARÉS"></figure>
+            <h1>PARÉS</h1>
+            <h2>CHARLA</h2>
+            <h3>PARÉS x PARÉS <br>en <span class="amarillo">45 minutos</span></h3>
+        </article>
+        <article class="un-invitado">
+            <h2 class="invitado-especial"><img src="img/flecha-der.png" alt="invitado especial">invitado especial<img src="img/flecha-izq.png" alt="invitado especial"></h2>
+            <figure><img src="img/invitado-montenegro.jpg" alt="MONTENEGRO"></figure>
+            <h1>MONTENEGRO</h1>
+            <h2>CHARLA</h2>
+            <h3>MONTENEGRO x MONTENEGRO <br>en <span class="amarillo">45 minutos</span></h3>
+        </article>
+        <article class="un-invitado">
+            <h2 class="invitado-especial"><img src="img/flecha-der.png" alt="invitado especial">invitado especial<img src="img/flecha-izq.png" alt="invitado especial"></h2>
+            <figure><img src="img/invitado-zorro-rojo.jpg" alt="LIBROS DEL ZORRO ROJO"></figure>
+            <h1>LIBROS DEL ZORRO ROJO</h1>
+            <h2>CHARLA</h2>
+            <h3>LIBROS DEL ZORRO ROJO x SEBASTIÁN GARCÍA SCHNETZER <br>en <span class="amarillo">45 minutos</span></h3>
+        </article>
+
+    </div>
+    </section>
+
+    <section id="feria" class="seccion fondoAmarillo">
+    <div class="contenido">
+        <h1>Feria Sudestada</h1>
+        <div class="seccion-texto">
+        <p>Podrás encontrar en esta feria de editoriales muchos de los sellos más importantes del país que trabajan entorno al dibujo y la ilustración. Literatura infanto juvenil, clásicos ilustrados, humor gráfico e historieta.</p>
+        <p>Algunos de los sellos confirmados son: Hotel de las Ideas, Loco Rabia, Pictus, Libros del Zorro Rojo, Moebius, Musaraña Editora, Editorial La Pinta, Editorial Común, Calibroscopio y muchos sellos más.</p>
+        </div>
+    </div>
+    </section>
+
+    
+    <article id="muestra" class="seccion fondoTurquesa">
+    <div class="contenido">
+        <h1>Exposición Colectiva SUDESTADA 100</h1>
+        <div class="lapiz-vertical">
+            <img src="img/lapiz.png" alt="SUDESTADA 100">
+        </div>
+        <div class="seccion-texto">
+            <p>La ilustración es una práctica solitaria, sin embargo la irrefrenable crecida de ilustradores y dibujantes en nuestro país los une en una comunidad heterogénea de creadores que, en búsqueda de caminos completamente diferentes como el del libro, las historietas, los avisos publicitarios, el diseño de productos y de textiles, o simplemente el del arte, comparten un mismo amor: "el lápiz".  </p>
+            <p>Pero cuidado con interpretar la palabra "lápiz" únicamente en su significado más literal, pues cada artista "dibuja" con su técnica, que puede ir desde recortar con tijera hasta usar lápices ópticos en tabletas digitalizadoras.</p>
+            <p><b>Sudestada 100</b> presenta 100 artistas que dan referencia a esta gran crecida del dibujo y la ilustración en Argentina, artistas nuevos y de trayectoria que con viento de Sudestada traen los más diversos y extravagantes personajes conviviendo todos en una misma pared.</p>
+            <p>Curadoría: <b>Ángela Corti</b></p>    
+        </div>
+    </div>
+    </article>
+    
+    <article id="programacion" class="seccion fondoBlanco">
+    <div class="contenido">
+        <h1>Grilla de programación</h1>
+        <div class="seccion-texto">
+
+        <style>
+            table.grilla-programacion tr td{
+                width: 85px;
+                height: 25px;
+                font-size: 0.9em;
+                font-family: 'museo_sans300';
+                line-height: 1.2em;
+                text-align: center;
+                vertical-align: middle;
+                border: 1px solid #fff;
+           }
+            table.grilla-programacion tr td:first-child{
+                font-size: 0.7em;
+           }
+            table.grilla-programacion tr:nth-child(odd) td:first-child{
+                font-size: 0.7em;
+                color:#999999;
+           }
+
+            table.grilla-programacion tr:first-child td:first-child{
+                font-size: 0.9em;
+                color:#FFF;
+           }
+
+            table.grilla-programacion tr:first-child td{
+                background-color: #df433a;
+                color:#FFF;
+                height: 45px;
+           }
+
+           table.grilla-programacion tr td.marcado{
+                background-color: #F0F0F0;
+           }
+        </style>
+
+            <table class="grilla-programacion">
+                <tr>
+                    <td>Hora</td>
+                    <td>Feria Sudestada</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>12.00</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>12.30</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>13.00</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>13.30</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>14.00</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>14.30</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>15.00</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>15.30</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>16.00</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>16.30</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>17.00</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>17.30</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>18.00</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>18.30</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>19.00</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>19.30</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>20.00</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>20.30</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>21.00</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>21.30</td>
+                    <td class="marcado"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>22.00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>22.30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    </article>
+    <section id="quienes" class="seccion fondoMagenta">
+    </section>    
+    <section id="quienes" class="seccion fondoBlanco">
+    <div class="contenido">
+        <h1>Quiénes somos</h1>
+        <article class="rol">
+            <h2>Ezequiel García</h2>
+            <h3>Coordinación general</h3>
+            <figure><img src="img/ezequiel-garcia-sudestada.jpg" alt="Ezequiel García"></figure>
+            <div class="seccion-texto">
+                <p>Ezequiel García, (Buenos Aires, 1975) es historietista y artista plástico. Fue co-editor de la revista de historietas "El Tripero" (realizada por los ex-alumnos de Alberto Breccia entre 1994 y 2002, y en su renacimiento en el 2015) y publicó las novelas gráficas "Llegar a los 30" (Emecé, 2007) y "Creciendo en público" (Ediciones Tren en Movimiento, 2013; ésta última a ser publicada en julio de 2016 por <a href="http://www.fantagraphics.com/growingupinpublic/" target="_blank">Fantagraphics</a>, USA). Publicó y expuso sus trabajos en Holanda, Chile, Perú, Colombia, España, Italia, Cuba y Panamá; obtuvo el Premio Historieta en el 27º Salón del Humor de Piracicaba (Brasil); fue co-curador del espacio de arte de Musetta Café (2010-2013) y co-organizador del <a href="https://www.facebook.com/festivalincreible" target="_blank">Festival Increíble de Historietas, Fanzines y Afines</a>. Hoy enseña historietas para adultos y niños en diversos espacios; es coordinador de ilustraciones e historietas de la <a href="http://www.revistacrisis.com.ar/" target="_blank">Revista Crisis</a>; director de la colección de libros de historietas <a href="http://www.trenenmovimiento.com.ar/GEM/gem.html" target="_blank">Gráfica En Movimiento</a> (publicados por Ediciones Tren en Movimiento) y pertenece a <a href="http://www.unfaulduo.com/" target="_blank">Un Faulduo</a>, colectivo de experimentación alrededor de la historieta. </p>
+                <p><a href="http://www.ezequielgarcia.com.ar" target="_blank"> www.ezequielgarcia.com.ar</a></p>
+            </div>
+        </article>
+        <article class="rol">
+            <h2>Alejandro Bidegaray</h2>
+            <h3>Idea y Dirección</h3>
+            <figure><img src="img/alejandro-bidegaray-sudestada.jpg" alt="Alejandro Bidegaray"></figure>
+            <div class="seccion-texto">
+                <p>Alejandro Bidegaray (Buenos Aires, 1981) es librero, fotógrafo, cineasta, viajero, psiconauta e inquieto. Desde 2012 trabaja al frente de Musaraña Libros, con sus ramas librería, galería, editorial y productora en ferias y eventos culturales. Como productor y curador ha realizado diversas exposiciones de autores como Carlos Nine, Luis Scafati, Decur, Fer Calvi, Max Cachimba, Powerpaola, Ezequiel García, Jesús Cossio, Chicks on Comics, Marco Tóxico y muchos otros. Ha trabajado y trabaja como curador y productor integral de festivales y exposiciones, a destacar entre ellos: Sudestada de Historietistas Argentinos (Barcelona 2014); Sudestada de Dibujo e Ilustración (Buenos Aires – México DF 2014); Festival Fanzín (CCCRRojas, Buenos Aires 2016).</p>
+                <p><a href="hht://www.musarañalibros.com.ar" target="_blank"> www.musarañalibros.com.ar</a></p>
+            </div>
+        </article>
+
+        <article class="rol">
+            <h2>Pablo Picyk</h2>
+            <h3>Imagen y Diseño Gráfico</h3>
+            <figure><img src="img/pablo-picyk-sudestada.jpg" alt="Pablo Picyk"></figure>
+            <div class="seccion-texto">
+                <p>Pablo Picyk, (Buenos Aires, 1978) se dedica al dibujo, la pintura, el diseño gráfico y la construcción de objetos. El dibujo es la herramienta que lo acompaña toda su vida. Publicó 10 libros infantiles, realizando las ilustraciones y 2 libros siendo también autor del texto (Alguien se comió una semilla de mandarina, ediciones tres en línea, 2013 y Una Súper sandía, ediciones tres en línea, 2014). Publicó los fanzines Rafaela (2014), Popurri (2015) y Alfabetizándonos (2016).</p>
+                <p>Su trabajo apareció en diarios, revistas, posters, televisión, proyectos sociales y productos.Publicó y exhibió su trabajo en Argentina, Chile, Brasil, USA, Inglaterra, Italia, España y Alemania. Da talleres de arte para chicos y de dibujo e ilustración para adultos. Incursiona en la cerámica y también en el ensamble, construyendo máscaras y personajes a partir de material de descarte y elementos de la naturaleza.</p>
+                <p><a href="http://www.pablopicyk.com.ar" target="_blank">www.pablopicyk.com.ar</a></p>
+            </div>
+        </article>
+        
+        <article class="rol">
+            <h2>Angela Corti</h2>
+            <h3>Curadora / Coordinación Sudestada 100</h3>
+            <figure><img src="img/angela-corti-sudestada.jpg" alt="Angela Corti"></figure>
+            <div class="seccion-texto">
+                <p>Ángela Corti (Buenos Aires, 1978). Es diseñadora gráfica de la UBA desde el año 2000 pero desde 2010 trabaja exclusivamente como ilustradora y diseñadora de superficies para empresas y editoriales de Argentina y el exterior como Cartoon Network, Tupperware Brands Argentina, La Anónima, Buenos Aires Bakery, Hunter Douglas, Revista Ohlala!, Revista El Gourmet, Edelvives, entre otros. Fue ayudante Ad-honorem en la Materia Diseño II de la carrera de Diseño Gráfico, Cát. Wolkowicz, en la FADU, UBA y desde 2013 dicta seminarios y talleres de collage.</p>
+                <p>Su obra personal, se desarrolla fundamentalmente alrededor de historias de su vida personal y del folklore de su país y de otros. Ha realizado exposiciones individuales en Buenos Aires y en Copenhague, Dinamarca y ha participado de muestras colectivas tanto en diversas provincias de su país, como el exterior. Ha sido elegida por Moleskine y Adobe como ilustradora para la presentar y promover el Producto "Moleskine Smart Notebook, Creative Cloud Connected" para Europa y Estados Unidos y junto a Alejandro Bidegaray fue curadora de Sudestada de Dibujo e Ilustración (Buenos Aires – México DF 2014).</p>
+                <p><a href="http://www.angelacorti.com.ar" target="_bkank">www.angelacorti.com.ar</a></p>
+            </div>
+        </article>
+
+        <article class="rol">
+            <h2>Manuel Forbes</h2>
+            <h3>Producción</h3>
+            <figure><img src="img/manuel-forbes-sudestada.jpg" alt="Manuel Forbes"></figure>
+            <div class="seccion-texto">
+                <p>Manuel Forbes, (Buenos Aires, 1982) estudió fotografía en la Escuela de Fotografía Creativa  Andy Goldstein, pero la vida lo fue llevando al mundo audiovisual.</p>
+                <p>Ha trabajado en películas y publicidades pero en los últimos 4 años produjo más de 10 series y especiales documentales para diversos canales. Entre los que se destacan Exodo (Canal Encuentro), Rockumentales (Canal Encuentro- Nominada a mejor programa documental Martin Fierro del Cable 2015), Una de Amor (Canal Acua Mayor) y Equilibrios (Canal Encuentro).</p>
+            </div>
+        </article>
+    </div>
+    </section>
+
+    
+    <section id="contacto" class="seccion fondoMagenta">
+    <div class="contenido">
+        <img src="img/logo-contacto.png" alt="Festival Sudestada">
+        <p class="fecha-contacto">5 de noviembre de 2016</p>
+        <p class="donde-contacto">CHELA <img src="img/flecha-der-chela.png" alt="En Chela"> Iguazú 451</p>
+        <p class="mail-contacto"><a href="mailto:info@festivalsudestada.com">info@festivalsudestada.com</a></p>
+
+    </div>
+    </section>
+
+    <footer class="seccion fondoTurquesa">
+    <div class="contenido">
+        <div class="logo-footer"><img src="img/logo-musarana.png" alt="Murasaña Productora"><img src="img/logo-chela.png" alt="CHELA"><img src="img/logo-mecenazgo.png" alt="Mecenazgo Cultural"></div>
+    </div>
+    </footer>
+    
+</body>
+</html>

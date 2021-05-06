@@ -1,0 +1,556 @@
+@charset "utf-8";
+/* CSS Document */
+
+html{
+	/*height:100%;*/
+}
+
+body{
+	/*height:100%;*/
+    overflow-x: hidden;
+}
+
+h1{
+	font-weight: normal;
+    font-size: 1.9em;
+    font-family: 'MrsLollipop-Fill';
+    text-transform: uppercase;
+}
+
+h2{
+	font-weight: normal;
+    font-family: 'museo_sans500';
+    font-size: 1.15em;
+}
+
+h3{
+	font-weight: normal;
+    font-family: 'museo_sans100';
+    font-size: 1.0em;
+}
+
+h4{
+	font-weight: normal;
+}
+
+p{
+    font-size: 0.9em;
+    font-family: 'museo_sans300';
+    line-height: 1.4em;
+    margin-bottom: 1.3em;
+}
+
+a{
+	color:#FFF;
+}
+
+a:link{
+	
+}
+
+a:hover{
+	
+}
+
+a:visited{
+	
+}
+
+sup{
+	position: relative; top: -0.4em; font-size: 70%;
+}
+
+
+/*HEADER*/
+
+header{
+    text-align:center;
+    background-image: url(../img/fondo-agua-temp.png);
+    position: relative;
+}
+
+header img{
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/*NAV*/
+
+nav{
+
+}
+
+/*FOOTER*/
+
+footer.fondoTurquesa{
+    padding: 1em 0;
+}
+
+footer div.logo-footer{
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+footer div.logo-footer img{
+    vertical-align: middle;
+    margin: 0 20px;
+}
+/*CONTENIDO*/
+
+
+.fondoTurquesa{
+    background-color: #00acd1;/*00aacc;*/
+}
+
+.fondoTurquesa h1{
+    color:#000;
+}
+
+.fondoTurquesa p{
+    color:#FFF;
+}
+
+.fondoMagenta{
+  background-color: #df433a;
+}
+
+.fondoMagenta h1{
+    color:#000;
+}
+
+.fondoMagenta p{
+    color:#FFF;
+}
+
+.fondoAmarillo{
+  background-color: #F8C000;
+}
+
+.fondoAmarillo h1{
+    color:#000;
+}
+
+.fondoAmarillo p{
+    color:#000;
+}
+
+.fondoBlanco{
+    background-color: #FFF;
+}
+
+.fondoBlanco h1{
+    color:#25272a;
+}
+
+.fondoBlanco h2{
+    color:#ff423c;
+}
+.fondoBlanco h3{
+    color:#25272a;
+}
+
+.fondoBlanco p{
+    color:#25272a;
+}
+
+.fondoBlanco p a{
+    color:#25272a;
+}
+.contenido{
+    width: 900px;
+    margin: 0 auto;
+    max-width:60%;
+}
+
+.seccion{
+    overflow: hidden;
+    padding: 3em 0;
+}
+
+.seccion h1, .seccion h2, .seccion h3{
+    float: left;
+    text-align: right;
+    width: 27%;
+    margin-right:73%;
+}
+.seccion h1{
+    margin-bottom:1em;
+}
+
+.seccion h2{
+    margin-bottom: 0.4em;    
+}
+.seccion h3{
+    margin-bottom: 0.4em;    
+}
+.seccion .seccion-texto{
+    float: right;
+    text-align: left;
+    width: 70%;
+}
+
+#quienes .contenido{
+    overflow: hidden;
+}
+
+.rol{
+    margin-bottom: 2em;
+    clear: both;
+    overflow: hidden;    
+}
+
+.rol figure{
+    float: left;
+    margin-top: 1em;
+    text-align: right;
+    width: 27%;
+}
+
+
+#invitados{
+  background: url(../img/fondo-invitados.jpg) repeat;
+}
+
+.un-invitado{
+margin: 50px 0;
+  width: 50%;
+  float: left;
+
+}
+
+.seccion .un-invitado figure{
+    width: 100%;
+    text-align: center;
+}
+.seccion .un-invitado figure img{
+    width: 65%;
+    height: auto;
+    text-align: center;
+}
+
+
+.seccion .un-invitado h1{
+    font-family: 'MrsLollipop-Fill';
+    text-transform: uppercase;
+    color:#F8C000;
+    font-size: 2.3em;
+    width: 100%;
+    text-align: center;
+    float: none;
+    margin-bottom: 0.5em;
+  }
+
+.seccion .un-invitado h2{
+    font-family: 'PaperCute';
+    color:#000;
+    font-size: 1.7em;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;    
+}
+
+.seccion .un-invitado h2.invitado-especial{
+    font-family: 'PaperCute';
+    color:#FFF;
+    font-size: 1.4em;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;    
+}
+
+.seccion .un-invitado h2.invitado-especial img{
+    padding: 0 5px;
+}
+
+.seccion .un-invitado h3{
+    font-family: 'MrsLollipop-Fill';
+    color:#FFF;
+    font-size: 1.7em;
+    width: 100%;
+    text-align: center;
+}
+
+.amarillo{
+    color:#F8C000;
+}
+
+#contacto{
+    text-align: center;
+    background: url(../img/fondo-contacto.jpg) no-repeat center bottom #f23b44; 
+    /*-webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;*/
+}
+
+#contacto img{
+    margin-bottom: 0.5em;
+}
+
+#contacto p{
+    color:#FFF;
+    font-size: 0.5em;
+}
+
+#feria{
+    background-image: url(../img/fondo-feria.png);
+    background-repeat: repeat;
+
+}
+
+#festival p{
+    text-shadow: 0px 0px 1px rgba(0, 170, 204, 1);
+    position: relative;
+    z-index: 3000;
+}
+
+.lapiz-vertical{
+    float: left;
+    width: 27%;
+    text-align: center;
+}
+
+/*CRONOGRAMA*/
+ .crono-bloque{
+        overflow: hidden;
+        margin-bottom: 1em;
+        border-bottom: 1px solid #DDD;
+    }
+    .crono-lugar{
+        float: left;
+        width: 30%;
+    }
+    .crono-lugar p{
+        color:#df433a;
+        font-family: "MrsLollipop-Fill";
+        font-size: 1.3em;
+    }
+    
+    .crono-actividades{
+        float: left;
+        width: 65%;
+        margin-left: 5%;
+    }
+    .crono-actividades p{
+        color:#000;
+        font-family: "museo_sans300";
+    }
+    .crono-actividades p span.crono-hora{
+        font-family: "museo_sans700";
+        color:#00acd1;
+    }
+    
+    /*************************************************/
+
+/****************************/
+.clear{
+	clear:both;
+}
+	
+
+@media screen and (max-width: 1024px) {
+
+    .seccion .un-invitado h2.invitado-especial {
+        font-family: 'PaperCute';
+        color: #FFF;
+        font-size: 1.2em;
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .seccion h1 {
+        font-size: 1.7em;
+    }    
+
+    .seccion .un-invitado h1 {
+        font-size: 1.9em;    
+    }
+
+    .seccion .un-invitado h3 {
+        font-size: 1.4em;
+    }    
+
+    .seccion .un-invitado h2 {
+        font-size: 1.4em;
+    }    
+
+    footer div.logo-footer img {
+        vertical-align: middle;
+        margin: 0 13px;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+
+.seccion h1, .seccion h2, .seccion h3 {
+    float: none;
+    text-align: left;
+    width: 100%;
+    margin-right: 0;
+}
+
+.seccion .seccion-texto {
+    float: none;
+    text-align: left;
+    width: 100%;
+}
+
+#quienes .seccion-texto {
+    float: right;
+    text-align: left;
+    width: 70%;
+}
+.seccion .rol figure img{
+    width: 100%;
+    height: auto;
+}
+
+.seccion .un-invitado h2.invitado-especial {
+    font-family: 'PaperCute';
+    color: #FFF;
+    font-size: 1.1em;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.seccion h1 {
+    font-size: 1.5em;
+}    
+
+.seccion .un-invitado h1 {
+    font-size: 1.7em;    
+}
+
+.seccion .un-invitado h3 {
+    font-size: 1.2em;
+}    
+
+.seccion .un-invitado h2 {
+    font-size: 1.2em;
+}    
+
+    footer div.logo-footer img {
+        vertical-align: middle;
+        margin: 0;
+    }
+
+    footer div.logo-footer img {
+        vertical-align: middle;
+        margin: 0 15px 20px;
+    }
+
+#fondo-naufrago-lapiz-out{
+    display: none;
+}
+
+}
+
+@media screen and (max-width: 767px) {
+
+.contenido {
+    width: 900px;
+    margin: 0 auto;
+    max-width: 95%;
+}
+#contacto img {
+    margin-bottom: 0.5em;
+    max-width: 100%;
+}
+
+#contacto p.fecha-contacto {
+    font-size: 2em;
+    }
+
+#contacto p.donde-contacto {
+    color: #F8C000;
+    font-size: 1.2em;
+}
+#contacto p.mail-contacto {
+    font-family: 'MrsLollipop-Fill';
+    font-size: 1.3em;
+}
+
+#fondo-zapato-out{
+    display: none;
+}
+
+
+}
+
+
+	
+	
+/*FUENTES*/
+
+@font-face {
+    font-family: 'museo_sans100';
+    src: url('museo_sans_100-webfont.eot');
+    src: url('museo_sans_100-webfont.eot?#iefix') format('embedded-opentype'),
+         url('museo_sans_100-webfont.woff') format('woff'),
+         url('museo_sans_100-webfont.ttf') format('truetype'),
+         url('museo_sans_100-webfont.svg#museo_sans100') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'museo_sans300';
+    src: url('museo_sans_300-webfont.eot');
+    src: url('museo_sans_300-webfont.eot?#iefix') format('embedded-opentype'),
+         url('museo_sans_300-webfont.woff') format('woff'),
+         url('museo_sans_300-webfont.ttf') format('truetype'),
+         url('museo_sans_300-webfont.svg#museo_sans300') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'museo_sans500';
+    src: url('museo_sans_500-webfont.eot');
+    src: url('museo_sans_500-webfont.eot?#iefix') format('embedded-opentype'),
+         url('museo_sans_500-webfont.woff') format('woff'),
+         url('museo_sans_500-webfont.ttf') format('truetype'),
+         url('museo_sans_500-webfont.svg#museo_sans500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'museo_sans700';
+    src: url('museo_sans_700-webfont.eot');
+    src: url('museo_sans_700-webfont.eot?#iefix') format('embedded-opentype'),
+         url('museo_sans_700-webfont.woff') format('woff'),
+         url('museo_sans_700-webfont.ttf') format('truetype'),
+         url('museo_sans_700-webfont.svg#museo_sans700') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'MrsLollipop-Fill';
+  src: url('MrsLollipop-Fill.eot?#iefix') format('embedded-opentype'),  url('MrsLollipop-Fill.otf')  format('opentype'),
+         url('MrsLollipop-Fill.woff') format('woff'), url('MrsLollipop-Fill.ttf')  format('truetype'), url('MrsLollipop-Fill.svg#MrsLollipop-Fill') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+	
+
+@font-face {
+  font-family: 'PaperCute';
+  src: url('PaperCute.eot?#iefix') format('embedded-opentype'),  url('PaperCute.otf')  format('opentype'),
+         url('PaperCute.woff') format('woff'), url('PaperCute.ttf')  format('truetype'), url('PaperCute.svg#PaperCute') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
